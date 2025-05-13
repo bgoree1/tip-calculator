@@ -10,45 +10,62 @@
 
     <h1>Tip Calculator</h1>
 
+    <!-- tip calculation form -->
     <form id="tip-form">
 
+        <!-- bill entry -->
         <div id="bill-container" class="input-container">
             <label for="bill">bill</label>
-            <input id="bill" class="tip-form-input" type="number" step=".01" placeholder="$" title="Enter bill total"required>
+            <input id="bill" class="tip-form-input tip-form-input-field" type="number" step=".01" placeholder="$" title="Enter bill total"required>
         </div>
-
+            
+        <div id="multtiplication-icon" class="math-icon">X</div>
+        
+        <!-- tip entry -->
         <div id="tip-container" class="input-container">
             <label for="tip-percentage" placeholder="%">tip</label>
-            <input id="tip-percentage" class="tip-form-input" type="number" min="0" step=".01" max="100"  title="Enter tip percentage"  placeholder="%">
+            <input id="tip-percentage" class="tip-form-input tip-form-input-field" type="number" min="0" step=".01" max="100"  title="Enter tip percentage"  placeholder="%">
 
-            <div class="input-button-container">
-                <input class="tip-form-input" type="button" value="15%">
-                <input class="tip-form-input" type="button" value="20%">
-                <input class="tip-form-input" type="button" value="25%">
+            <div id="tip-btn-container" class="input-btn-container">
+                <input class="tip-form-input tip-form-input-btn" type="button" value="15%">
+                <input class="tip-form-input tip-form-input-btn" type="button" value="20%">
+                <input class="tip-form-input tip-form-input-btn" type="button" value="25%">
             </div>
-
+            <button>split tip</button>
         </div>
 
+        <div id="division-icon" class="math-icon">=</div>
+
+        <!-- split entry -->
         <div id="split-container" class="input-container">
             <label for="split-count">split</label>
-            <input id="split-count" class="tip-form-input" type="number" step="1" value="1" title="enter number of contributors">
-
-                <div id="split-btn-container" class="input-button-container">
-                    <input class="tip-form-input" type="button" value="2">
-                    <input class="tip-form-input" type="button" value="3">
-                    <input class="tip-form-input" type="button" value="4">
-                </div>
-
+            <input id="split-count" class="tip-form-input tip-form-input-field" type="number" step="1" value="1" title="enter number of contributors">
+            <div id="split-btn-container" class="input-btn-container">
+                <input class="tip-form-input tip-form-input-btn" type="button" value="2">
+                <input class="tip-form-input tip-form-input-btn" type="button" value="3">
+                <input class="tip-form-input tip-form-input-btn" type="button" value="4">
+            </div>
+            ways
         </div>
+
     </form>
+    
+    <!-- bottom results messages-->
+    <div id="results-msgs">
 
-    <p id="tip-info">
-        <span id="tip-info-percentage" class="tip-info-span">n</span> percent of
-        <span id="tip-info-bill" class="tip-info-span">(bill)</span> split
-        <span id="tip-info-split" class="tip-info-span">n</span> ways =
-        <span id="tip-info-split" class="tip-info-span">n</span>
-        <span id="tip-info-per-person"> per person</span>
+        <p id="tip-split-msg">
+            <span id="tip-split-msg-percentage" class="tip-info-span">(tip%)</span>% of 
+            $<span id="tip-split-msg-bill" class="tip-info-span">($bill)</span>split 
+            <span id="tip-split-msg-splitters" class="tip-info-span">(#split) </span>ways = 
+            $<span id="tip-split-msg-split" class="tip-info-span">($split)</span> per person
+        </p>
 
-    </p>
+        <p id="bill-tip-total-msg">
+            $<span id="bill-tip-total-msg-bill" class="tip-info-span">($bill)</span>+ 
+            $<span id="bill-tip-total-msg-tip" class="tip-info-span">($tip)</span>= 
+            $<span id="bill-tip-total-msg-total">(total)</span>
+        </p>
+
+    </div>
 </body>
 </html>

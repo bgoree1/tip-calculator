@@ -1,17 +1,17 @@
 * {
     box-sizing: border-box;
     margin: 0;
-    outline: 1px solid green;
+    /* outline: 1px solid green; */
     padding: 0;
 }
 
 html {
-    font-size: 2rem;
+    font-size: 1rem;
 }
 
 body {
     height: 100vh;
-    background-color: rgba(17, 17, 17, 0.878);
+    /* background-color: rgba(17, 17, 17, 0.878); */
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -20,7 +20,7 @@ body {
 
 #tip-form {
     width: 50%;
-    height: 50vh;
+    height: auto;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -31,8 +31,13 @@ body {
     justify-content: space-evenly;
 }
 
-.tip-form-input {
+.input-btn-container {
+    display: flex;
+}
+
+.tip-form-input-field {
     text-align: center;
+    width: 25%;
 }
 
 #tip-percentage::placeholder {
@@ -41,4 +46,13 @@ body {
 
 #bill::placeholder {
     text-align: left;
+}
+
+.math-icon {
+    width: min-content;
+    margin: auto;
+}
+
+#results-msgs {
+    text-align: center;
 }
