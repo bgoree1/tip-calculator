@@ -8,7 +8,7 @@
 </head>
 <body>
 
-    <h1>Tip Calculator</h1>
+    <!-- <h1>Tip Calculator</h1> -->
 
     <!-- tip calculation form -->
     <form id="tip-form">
@@ -16,37 +16,49 @@
         <!-- bill entry -->
         <div id="bill-container" class="input-container">
             <label for="bill">bill</label>
-            <input id="bill" class="tip-form-input tip-form-input-field" type="number" step=".01" placeholder="$" title="Enter bill total"required>
+            <input id="bill" class="tip-form-input form-input-field" type="number" step=".01" placeholder="$" title="Enter bill total"required>
         </div>
             
-        <div id="multtiplication-icon" class="math-icon">X</div>
+        <div id="multtiplication-icon" class="math-icon">x</div>
         
         <!-- tip entry -->
         <div id="tip-container" class="input-container">
-            <label for="tip-percentage" placeholder="%">tip</label>
-            <input id="tip-percentage" class="tip-form-input tip-form-input-field" type="number" min="0" step=".01" max="100"  title="Enter tip percentage"  placeholder="%">
+            
+            <div id="tip-percentage-input-container">
+                <label for="tip-percentage" placeholder="%">tip</label>
+                <input id="tip-percentage" class="tip-form-input form-input-field" type="number" min="0" step=".01" max="100"  title="Enter tip percentage"  placeholder="%">
+            </div>
 
             <div id="tip-btn-container" class="input-btn-container">
-                <input class="tip-form-input tip-form-input-btn" type="button" value="15%">
-                <input class="tip-form-input tip-form-input-btn" type="button" value="20%">
-                <input class="tip-form-input tip-form-input-btn" type="button" value="25%">
+                <input class="tip-form-input tip-form-btn" type="button" value="15%">
+                <input class="tip-form-input tip-form-btn" type="button" value="20%">
+                <input class="tip-form-input tip-form-btn" type="button" value="25%">
             </div>
-            <button>split tip</button>
-        </div>
+            
+            <button id="split-tip-btn">split tip</button>
 
-        <div id="division-icon" class="math-icon">=</div>
+        </div>
 
         <!-- split entry -->
         <div id="split-container" class="input-container">
-            <label for="split-count">split</label>
-            <input id="split-count" class="tip-form-input tip-form-input-field" type="number" step="1" value="1" title="enter number of contributors">
-            <div id="split-btn-container" class="input-btn-container">
-                <input class="tip-form-input tip-form-input-btn" type="button" value="2">
-                <input class="tip-form-input tip-form-input-btn" type="button" value="3">
-                <input class="tip-form-input tip-form-input-btn" type="button" value="4">
+
+            <div id="split-count-input-container">
+                <label for="split-count">split</label>
+                <input id="split-count" class="tip-form-input form-input-field" type="number" step="1" title="enter number of contributors">
             </div>
-            ways
+
+            <div id="split-btn-container" class="input-btn-container">
+                <input class="tip-form-input tip-form-btn" type="button" value="2">
+                <input class="tip-form-input tip-form-btn" type="button" value="3">
+                <input class="tip-form-input tip-form-btn" type="button" value="4">
+            </div>
+            
         </div>
+
+        <div id="equals-icon" class="math-icon">=</div>
+
+        <!-- results -->
+         <output id="result-output">$0.00</output>
 
     </form>
     

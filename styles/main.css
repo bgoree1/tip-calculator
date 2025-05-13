@@ -26,33 +26,112 @@ body {
     justify-content: space-between;
 }
 
-.input-container {
+
+/* bill */
+#bill-container {
     display: flex;
+}
+
+#bill-container > * {
+    flex: 1 0 50%;
+}
+
+#bill::placeholder {
+    text-align: left;
+}
+/*  */
+
+
+/* tip */
+#tip-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;;
+}
+
+#tip-percentage-input-container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+
+}
+
+#tip-percentage-input-container > * {
+    flex: 1 0 50%;
+}
+
+#tip-btn-container {
+    display: flex;
+    width: 100%;
     justify-content: space-evenly;
-}
-
-.input-btn-container {
-    display: flex;
-}
-
-.tip-form-input-field {
-    text-align: center;
-    width: 25%;
 }
 
 #tip-percentage::placeholder {
     text-align: right;
 }
 
-#bill::placeholder {
-    text-align: left;
+.tip-form-btn {
+    flex: 1 0 calc(100% / 3);
+}
+
+#split-tip-btn {
+    width: 100%;
+}
+/*  */
+
+
+/* split */
+#split-container {
+    display: flex;
+    flex-direction: column;
+}
+#split-container > * {
+    flex: 1 0 25%;
+}
+
+#split-count-input-container {
+    display: flex;
+}
+
+#split-count-input-container > *{
+    flex: 1 1 50%;
+}
+/*  */
+
+
+/* result */
+#result-output {
+    text-align: center;
+}
+/*  */
+
+
+/* messages */
+#results-msgs {
+    text-align: center;
+}
+/*  */
+
+
+.form-input-field {
+    text-align: center;
+    width: 25%;
+}
+
+.input-container {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.input-container label{
+    text-align: center;
+}
+
+.input-btn-container {
+    display: flex;
 }
 
 .math-icon {
     width: min-content;
     margin: auto;
-}
-
-#results-msgs {
-    text-align: center;
 }
