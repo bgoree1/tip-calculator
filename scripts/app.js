@@ -4,7 +4,7 @@ const tipForm = document.querySelector('#tip-form');
 // Bill Entry
 const billContainer = document.querySelector('#bill-container');
 const billInput = document.querySelector('#bill-input');
-const multiplicationIcon = document.querySelector('#multiplication-icon');
+const plusIcon = document.querySelector('#multiplication-icon');
 
 // Tip Entry
 const tipContainer = document.querySelector('#tip-container');
@@ -54,5 +54,8 @@ function handleFormInput(e) {
 
 tipPercentageInput.addEventListener('keyup', handleFormInput);
 billInput.addEventListener('keyup', handleFormInput);
-
-// console.log(calculateTip());
+// tip buttons
+document.querySelectorAll('#tip-btn-container > *').forEach(button => button.addEventListener('click', () => {
+    tipPercentageInput.value = button.value;
+    handleFormInput();
+}));
