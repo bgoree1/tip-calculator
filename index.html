@@ -15,18 +15,18 @@
 
         <!-- bill entry -->
         <div id="bill-container" class="input-container">
-            <label for="bill">bill</label>
-            <input id="bill" class="tip-form-input form-input-field" type="number" step=".01" placeholder="$" title="Enter bill total"required>
+            <label for="bill-input">bill</label>
+            <input id="bill-input" class="tip-form-input form-input-field" type="number" step=".01" placeholder="$" title="Enter bill total"required>
         </div>
             
-        <div id="multtiplication-icon" class="math-icon">x</div>
+        <div id="multiplication-icon" class="math-icon">x</div>
         
         <!-- tip entry -->
         <div id="tip-container" class="input-container">
             
             <div id="tip-percentage-input-container">
-                <label for="tip-percentage" placeholder="%">tip</label>
-                <input id="tip-percentage" class="tip-form-input form-input-field" type="number" min="0" step=".01" max="100"  title="Enter tip percentage"  placeholder="%">
+                <label for="tip-percentage-input" placeholder="%">tip</label>
+                <input id="tip-percentage-input" class="tip-form-input form-input-field" type="number" min="0" step=".01" max="100"  title="Enter tip percentage"  placeholder="%" required>
             </div>
 
             <div id="tip-btn-container" class="input-btn-container">
@@ -43,8 +43,8 @@
         <div id="split-container" class="input-container">
 
             <div id="split-count-input-container">
-                <label for="split-count">split</label>
-                <input id="split-count" class="tip-form-input form-input-field" type="number" step="1" title="enter number of contributors">
+                <label for="split-count-input">split</label>
+                <input id="split-count-input" class="tip-form-input form-input-field" type="number" step="1" title="enter number of contributors">
             </div>
 
             <div id="split-btn-container" class="input-btn-container">
@@ -58,12 +58,12 @@
         <div id="equals-icon" class="math-icon">=</div>
 
         <!-- results -->
-         <output id="result-output">$0.00</output>
+        <output id="result-output">$0.00</output>
 
     </form>
     
     <!-- bottom results messages-->
-    <div id="results-msgs">
+    <div id="results-msgs-container">
 
         <p id="tip-split-msg">
             <span id="tip-split-msg-percentage" class="tip-info-span">(tip%)</span>% of 
@@ -79,5 +79,6 @@
         </p>
 
     </div>
-</body>
+    <script src="scripts/app.js" type="module"></script>
+</body> 
 </html>

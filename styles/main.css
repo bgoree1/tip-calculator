@@ -66,7 +66,7 @@ body {
     justify-content: space-evenly;
 }
 
-#tip-percentage::placeholder {
+#tip-percentage-input::placeholder {
     text-align: right;
 }
 
@@ -107,7 +107,7 @@ body {
 
 
 /* messages */
-#results-msgs {
+#results-msgs-container {
     text-align: center;
 }
 /*  */
