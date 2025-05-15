@@ -9,7 +9,10 @@ const plusIcon = document.querySelector('#multiplication-icon');
 // Tip Entry
 const tipContainer = document.querySelector('#tip-container');
 const tipPercentageInputContainer = document.querySelector('#tip-percentage-input-container');
-const tipPercentageInput = document.querySelector('#tip-percentage-input');
+const tipPercentageInput = document.querySelector
+('#tip-percentage-input');
+const tipNumbersContainer = document.querySelector('#tip-numbers-container');
+const tipDollarDisplay = document.querySelector('#tip-dollar-display');
 const tipBtnContainer = document.querySelector('#tip-btn-container');
 const splitTipBtn = document.querySelector('#split-tip-btn');
 
@@ -46,16 +49,31 @@ function calculateTip(bill, tipPercent) {
 
 function handleFormInput(e) {
     const billVal = Number(billInput.value);
-    const tipVal = Number(tipPercentageInput.value)
+    const tipVal = Number(tipPercentageInput.value) / 100;
     const tip = calculateTip(billVal, tipVal);
 
+    tipDollarDisplay.textContent = tip === 0 ? '$0' : `$${tip.toFixed(2)}`;
     resultOutput.textContent = billVal === 0 ? '$0' : `$${(billVal + tip).toFixed(2)}`;
 }
 
-tipPercentageInput.addEventListener('keyup', handleFormInput);
+function resetForm(form) {
+    form.reset();
+}
+
+
+// Event Listeners
 billInput.addEventListener('keyup', handleFormInput);
-// tip buttons
+billInput.addEventListener('change', handleFormInput);
+tipPercentageInput.addEventListener('keyup', handleFormInput);
+tipPercentageInput.addEventListener('change', handleFormInput);
+    // tip buttons event listeners
 document.querySelectorAll('#tip-btn-container > *').forEach(button => button.addEventListener('click', () => {
-    tipPercentageInput.value = button.value;
+    tipPercentageInput.value = Number(button.value) * 100;
     handleFormInput();
 }));
+    // reset button
+document.querySelector('#reset-btn').addEventListener('click', e => {
+    resetForm(tipForm);
+    tipDollarDisplay.textContent = "$0";
+    resultOutput.textContent = "$0";
+});

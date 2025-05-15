@@ -16,7 +16,7 @@
         <!-- bill entry -->
         <div id="bill-container" class="input-container">
             <label for="bill-input">bill</label>
-            <input id="bill-input" class="tip-form-input form-input-field" type="number" step=".01" placeholder="$" title="Enter bill total"required>
+            <input id="bill-input" class="tip-form-input form-input-field" type="number" step=".01" placeholder="$" title="Enter bill total" required>
         </div>
             
         <div id="plus-icon" class="math-icon">+</div>
@@ -26,7 +26,10 @@
             
             <div id="tip-percentage-input-container">
                 <label for="tip-percentage-input" placeholder="%">tip</label>
-                <input id="tip-percentage-input" class="tip-form-input form-input-field" type="number" min="0" step=".01" max="100"  title="Enter tip percentage"  placeholder="%" required>
+                    <div id="tip-numbers-container">
+                        <input id="tip-percentage-input" class="tip-form-input form-input-field" type="number" min="0" step=".01" max="100"  title="Enter tip percentage"  placeholder="%" required>
+                        <span id='tip-dollar-display'>$0</span>
+                    </div>
             </div>
 
             <div id="tip-btn-container" class="input-btn-container">
@@ -58,7 +61,10 @@
         <div id="equals-icon" class="math-icon">=</div>
 
         <!-- results -->
-        <output id="result-output">$0.00</output>
+        <output id="result-output">$0</output>
+
+        <!-- reset button -->
+         <span id="reset-btn">reset</span>
 
     </form>
     
