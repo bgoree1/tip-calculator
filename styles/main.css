@@ -89,7 +89,8 @@ body {
 
 /* split */
 #split-container {
-    display: flex;
+    display: none;
+    /* display: flex; */
     flex-direction: column;
 }
 #split-container > * {
@@ -102,6 +103,10 @@ body {
 
 #split-count-input-container > *{
     flex: 1 1 50%;
+}
+
+#split-result-container {
+    text-align: center;
 }
 /*  */
 
