@@ -27,7 +27,7 @@
             <div id="tip-percentage-input-container">
                 <label for="tip-percentage-input" placeholder="%">tip</label>
                     <div id="tip-numbers-container">
-                        <input id="tip-percentage-input" class="tip-form-input form-input-field" type="number" min="0" step=".01" max="100"  title="Enter tip percentage"  placeholder="%" required>
+                        <input id="tip-percentage-input" class="tip-form-input form-input-field" type="number" min="0" step="1" max="100"  title="Enter tip percentage"  placeholder="%" required>
                         <span id='tip-dollar-display'>$0</span>
                     </div>
             </div>
@@ -38,7 +38,7 @@
                 <button class="tip-form-input tip-form-btn" type="button" value=".25">25%</button>
             </div>
             
-            <button id="split-tip-btn">split tip</button>
+            <button id="split-tip-btn" type="button">split tip</button>
 
         </div>
 
@@ -47,7 +47,7 @@
 
             <div id="split-count-input-container">
                 <label for="split-count-input">split</label>
-                <input id="split-count-input" class="tip-form-input form-input-field" type="number" step="1" title="enter number of contributors">
+                <input id="split-count-input" class="tip-form-input form-input-field" type="number" min="2" step="1" title="enter number of contributors">
             </div>
 
             <div id="split-btn-container" class="input-btn-container">
@@ -56,7 +56,7 @@
                 <input class="tip-form-input tip-form-btn" type="button" value="4">
             </div>
             
-            <div id="split-result-container">tip / #split = $split</div>
+            <div id="split-result">$0</div>
 
 
         </div>

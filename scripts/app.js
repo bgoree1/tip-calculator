@@ -22,6 +22,7 @@ const splitCountInputContainer = document.querySelector('#split-count-input-cont
 const splitCountInput = document.querySelector('#split-count-input');
 const splitBtnContainer = document.querySelector('#split-btn-container');
 const equalsIcon = document.querySelector('#equals-icon');
+const splitResult = document.querySelector('#split-result');
 
 // Result Output
 const resultOutput = document.querySelector('#result-output');
@@ -42,59 +43,88 @@ const billTipTotalMsgBill = document.querySelector('#bill-tip-total-msg-bill');
 const billTipTotalMsgTip = document.querySelector('#bill-tip-total-msg-tip');
 const billTipTotalMsgTotal = document.querySelector('#bill-tip-total-msg-total');
 
-
-function calculateTip(bill, tipPercent) {
-    return bill * tipPercent;
-}
+// Functions
 
 function handleFormInput(e) {
     const billVal = Number(billInput.value);
     const tipVal = Number(tipPercentageInput.value) / 100;
-    const tip = calculateTip(billVal, tipVal);
+    const tip = billVal * tipVal;
 
     tipDollarDisplay.textContent = tip === 0 ? '$0' : `$${tip.toFixed(2)}`;
     resultOutput.textContent = billVal === 0 ? '$0' : `$${(billVal + tip).toFixed(2)}`;
+
+    // handleSplitInput
+    return function() {     
+
+        const split = Math.round(splitCountInput.value);
+        const splitVal = tip / split ;
+
+        if (split && (billVal > 0 && billVal < Infinity) && (tipVal > 0 && tipVal < Infinity)) {
+            splitResult.textContent = `$${splitVal.toFixed(2)} per person`
+        } else {
+             splitResult.textContent = '$0 per person';
+        }
+
+    }
 }
 
-function resetForm(form) {
-    form.reset();
-}
-
-function toggleSplitUI(e) {
+function toggleSplit(e) {
     e.preventDefault();
-
     if (splitContainer.style.display === 'none') {
         splitContainer.style.display = 'flex';
         splitTipBtn.textContent = 'cancel split';
     } else {
         splitContainer.style.display = 'none';
         splitTipBtn.textContent = 'split tip';
+        splitCountInput.value = "";
+        splitResult.textContent = '$0 per person';
     }
 }
 
 
 // Event Listeners
+    // tip input
 billInput.addEventListener('keyup', handleFormInput);
 billInput.addEventListener('change', handleFormInput);
 tipPercentageInput.addEventListener('keyup', handleFormInput);
 tipPercentageInput.addEventListener('change', handleFormInput);
+
     // tip buttons
 document.querySelectorAll('#tip-btn-container > *').forEach(button => button.addEventListener('click', () => {
     tipPercentageInput.value = Number(button.value) * 100;
     handleFormInput();
+    const handleSplitInput = handleFormInput();
+        handleSplitInput();
 }));
+
     // reset button
 document.querySelector('#reset-btn').addEventListener('click', e => {
-    resetForm(tipForm);
+    tipForm.reset();
+    splitContainer.style.display = 'none';
+    splitTipBtn.textContent = 'split tip';
+    splitResult.textContent = "$0 per person";
     tipDollarDisplay.textContent = "$0";
     resultOutput.textContent = "$0";
 });
-    // split ui toggle
-splitTipBtn.addEventListener('click', toggleSplitUI);
-    // split count
+
+    // split toggle
+splitTipBtn.addEventListener('click', toggleSplit);
+
+    // split count input
+splitCountInput.addEventListener('keyup', e => {
+    const handleSplitInput = handleFormInput(e);
+    handleSplitInput();
+});
+splitCountInput.addEventListener('change', e => {
+    const handleSplitInput = handleFormInput(e);
+    handleSplitInput();
+});
+
+    // split count buttons
 for (let button of splitBtnContainer.children) {
     button.addEventListener('click', e => {
         splitCountInput.value = button.value;
+        const handleSplitInput = handleFormInput(e);
+        handleSplitInput();
     })
 };
-
