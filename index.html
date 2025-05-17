@@ -46,20 +46,22 @@
         <div id="split-container" class="input-container" hidden>
 
             <div id="split-count-input-container">
-                <label for="split-count-input">split</label>
+                <label for="split-count-input">tippers</label>
                 <input id="split-count-input" class="tip-form-input form-input-field" type="number" min="2" step="1" title="enter number of contributors">
             </div>
 
             <div id="split-btn-container" class="input-btn-container">
-                <input class="tip-form-input tip-form-btn" type="button" value="2">
                 <input class="tip-form-input tip-form-btn" type="button" value="3">
                 <input class="tip-form-input tip-form-btn" type="button" value="4">
+                <input class="tip-form-input tip-form-btn" type="button" value="5">
             </div>
-            
-            <div id="split-result">$0</div>
 
-
+            <button id="split-portion-btn" type="button">adjust split portions</button>
         </div>
+
+        <div id="split-portion-container"></div>
+
+        <div id="split-result"></div>
 
         <div id="equals-icon" class="math-icon">=</div>
 
@@ -70,6 +72,9 @@
          <span id="reset-btn">reset</span>
 
     </form>
+
+
+
 
     <script src="scripts/app.js" type="module"></script>
 </body> 

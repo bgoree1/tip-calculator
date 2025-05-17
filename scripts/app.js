@@ -20,6 +20,8 @@ const splitCountInput = document.querySelector('#split-count-input');
 const splitBtnContainer = document.querySelector('#split-btn-container');
 const equalsIcon = document.querySelector('#equals-icon');
 const splitResult = document.querySelector('#split-result');
+const splitPortionBtn = document.querySelector("#split-portion-btn");
+const splitPortionContainer = document.querySelector("#split-portion-container");
 // Result Output
 const resultOutput = document.querySelector('#result-output');
 // Tip Split Message
@@ -46,9 +48,9 @@ function handleFormInput(e) {
     if (split && (billVal > 0 && billVal < Infinity) && (tipVal > 0 && tipVal < Infinity)) {
         splitResult.textContent = `$${splitVal.toFixed(2).replace('.00', '')} per person`
     } else {
-            splitResult.textContent = '$0 per person';
+            splitResult.textContent = '$0 per tipper';
     }
-
+    
 }
 
 function toggleSplit(e) {
@@ -62,8 +64,25 @@ function toggleSplit(e) {
     } else {
         splitContainer.style.display = 'none';
         splitTipBtn.textContent = 'split tip';
-        splitCountInput.value = "";
-        splitResult.textContent = '$0 per person';
+        splitCountInput.value = '';
+        splitResult.textContent = '';
+    }
+}
+
+function toggleSplitPortions(e) {
+    if (splitPortionContainer.innerHTML === '') {
+        const portions = Math.round(Number(splitCountInput.value));
+        let html = '';
+        for (let i = 0; i < portions; i++) {
+            html += `<div id="tip-portion">
+            <span>tipper ${i + 1}</span>
+            <input type="number" step="1" value="${(100 / splitCountInput.value).toFixed(2).replace('.00', '')}">
+            <input type="number" step="1" value="${(billInput.value * tipPercentageInput.value / splitCountInput.value / 100).toFixed(2).replace('.00', '')}">
+        </div>`;
+        }
+        splitPortionContainer.innerHTML = html;
+    } else {
+        splitPortionContainer.innerHTML = '';
     }
 }
 
@@ -86,7 +105,7 @@ document.querySelector('#reset-btn').addEventListener('click', e => {
     tipForm.reset();
     splitContainer.style.display = 'none';
     splitTipBtn.textContent = 'split tip';
-    splitResult.textContent = "$0 per person";
+    splitResult.textContent = "$0 per tipper";
     tipDollarDisplay.textContent = "$0";
     resultOutput.textContent = "$0";
 });
@@ -95,20 +114,16 @@ document.querySelector('#reset-btn').addEventListener('click', e => {
 splitTipBtn.addEventListener('click', toggleSplit);
 
     // split count input
-splitCountInput.addEventListener('keyup', e => {
-    const handleSplitInput = handleFormInput(e);
-    handleSplitInput();
-});
-splitCountInput.addEventListener('change', e => {
-    const handleSplitInput = handleFormInput(e);
-    handleSplitInput();
-});
+splitCountInput.addEventListener('keyup', handleFormInput);
+splitCountInput.addEventListener('change', handleFormInput);
 
     // split count buttons
 for (let button of splitBtnContainer.children) {
     button.addEventListener('click', e => {
         splitCountInput.value = button.value;
-        const handleSplitInput = handleFormInput(e);
-        handleSplitInput();
+        handleFormInput();
     })
 };
+
+    // split portions button
+splitPortionBtn.addEventListener('click', toggleSplitPortions);

@@ -105,6 +105,13 @@ body {
     flex: 1 1 50%;
 }
 
+#tip-portion {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 #split-result {
     text-align: center;
 }
