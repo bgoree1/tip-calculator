@@ -50,8 +50,8 @@ function handleFormInput(e) {
     const tipVal = Number(tipPercentageInput.value) / 100;
     const tip = billVal * tipVal;
 
-    tipDollarDisplay.textContent = tip === 0 ? '$0' : `$${tip.toFixed(2)}`;
-    resultOutput.textContent = billVal === 0 ? '$0' : `$${(billVal + tip).toFixed(2)}`;
+    tipDollarDisplay.textContent = tip === 0 ? '$0' : `$${tip.toFixed(2).replace('.00', '')}`;
+    resultOutput.textContent = billVal === 0 ? '$0' : `$${(billVal + tip).toFixed(2).replace('.00', '')}`;
 
     // handleSplitInput
     return function() {     
@@ -60,7 +60,7 @@ function handleFormInput(e) {
         const splitVal = tip / split ;
 
         if (split && (billVal > 0 && billVal < Infinity) && (tipVal > 0 && tipVal < Infinity)) {
-            splitResult.textContent = `$${splitVal.toFixed(2)} per person`
+            splitResult.textContent = `$${splitVal.toFixed(2).replace('.00', '')} per person`
         } else {
              splitResult.textContent = '$0 per person';
         }
