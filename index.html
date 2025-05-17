@@ -33,9 +33,9 @@
             </div>
 
             <div id="tip-btn-container" class="input-btn-container">
-                <button class="tip-form-input tip-form-btn" type="button" value=".15">15%</button>
-                <button class="tip-form-input tip-form-btn" type="button" value=".2">20%</button>
-                <button class="tip-form-input tip-form-btn" type="button" value=".25">25%</button>
+                <input class="tip-form-input tip-form-btn" type="button" value="15%" data-tip-val=".15">
+                <input class="tip-form-input tip-form-btn" type="button" value="20%" data-tip-val=".20">
+                <input class="tip-form-input tip-form-btn" type="button" value="25%" data-tip-val=".25">
             </div>
             
             <button id="split-tip-btn" type="button">split tip</button>
@@ -70,24 +70,7 @@
          <span id="reset-btn">reset</span>
 
     </form>
-    
-    <!-- bottom results messages-->
-    <div id="results-msgs-container">
 
-        <p id="tip-split-msg">
-            <span id="tip-split-msg-percentage" class="tip-info-span">(tip%)</span>% of 
-            $<span id="tip-split-msg-bill" class="tip-info-span">($bill)</span>split 
-            <span id="tip-split-msg-splitters" class="tip-info-span">(#split) </span>ways = 
-            $<span id="tip-split-msg-split" class="tip-info-span">($split)</span> per person
-        </p>
-
-        <p id="bill-tip-total-msg">
-            $<span id="bill-tip-total-msg-bill" class="tip-info-span">($bill)</span>+ 
-            $<span id="bill-tip-total-msg-tip" class="tip-info-span">($tip)</span>= 
-            $<span id="bill-tip-total-msg-total">(total)</span>
-        </p>
-
-    </div>
     <script src="scripts/app.js" type="module"></script>
 </body> 
 </html>
